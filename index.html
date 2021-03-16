@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto Russia</title>
+    <link rel="stylesheet" href="./pages/index.css">
+  </head>
+  <body class="page">
+
+    <header class="header section">
+      <img src="./images/logo/logo.svg" alt="логотип" class="logo">
+    </header>
+
+    <main class="content section">
+      <section class="profile">
+        <img src="./images/header/cousteau.png" alt="Жак-Ив Кусто" class="profile__avatar">
+        <div class="profile__infro">
+          <h2 class="profile__name">Жак-Ив Кусто</h2>
+          <p class="profile__profesion">Исследователь океана</p>
+          <button type="button" class="button profile__button profile__button_edit"><img src="./images/icons/pencil.svg" alt="редактировать" class="button__image"></button>
+        </div>
+        <button type="button" class="button profile__button profile__button_add">+</button>
+      </section>
+
+      <section class="card-list">
+
+        <article class="card">
+          <figure class="card__figure">
+            <img src="./images/card-list/karachayevsk.png" alt="Карачаевск" class="card__image">
+            <figcaption class="card__description">Карачаевск</figcaption>
+          </figure>
+          <button type="button" class="button card__buton card__buton_like"><img src="./images/icons/like_disabled.svg" alt="понравилось" class="button__image"></button>
+        </article>
+
+        <article class="card">
+          <figure class="card__figure">
+            <img src="./images/card-list/mount-elbrus.png" alt="Гора Эльбрус" class="card__image">
+            <figcaption class="card__description">Гора Эльбрус</figcaption>
+          </figure>
+          <button type="button" class="button card__buton card__buton_like"><img src="./images/icons/like_disabled.svg" alt="понравилось" class="button__image"></button>
+        </article>
+
+        <article class="card">
+          <figure class="card__figure">
+            <img src="./images/card-list/dombai.png" alt="Домбай" class="card__image">
+            <figcaption class="card__description">Домбай</figcaption>
+          </figure>
+          <button type="button" class="button card__buton card__buton_like"><img src="./images/icons/like_disabled.svg" alt="понравилось" class="button__image"></button>
+        </article>
+
+        <article class="card">
+          <figure class="card__figure">
+            <img src="./images/card-list/mount-elbrus.png" alt="Гора Эльбрус" class="card__image">
+            <figcaption class="card__description">Гора Эльбрус</figcaption>
+          </figure>
+          <button type="button" class="button card__buton card__buton_like"><img src="./images/icons/like_disabled.svg" alt="понравилось" class="button__image"></button>
+        </article>
+
+        <article class="card">
+          <figure class="card__figure">
+            <img src="./images/card-list/dombai.png" alt="Домбай" class="card__image">
+            <figcaption class="card__description">Домбай</figcaption>
+          </figure>
+          <button type="button" class="button card__buton card__buton_like"><img src="./images/icons/like_disabled.svg" alt="понравилось" class="button__image"></button>
+        </article>
+
+        <article class="card">
+          <figure class="card__figure">
+            <img src="./images/card-list/karachayevsk.png" alt="Карачаево-Черкесия" class="card__image">
+            <figcaption class="card__description">Карачаево-Черкесия</figcaption>
+          </figure>
+          <button type="button" class="button card__buton card__buton_like"><img src="./images/icons/like_disabled.svg" alt="понравилось" class="button__image"></button>
+        </article>
+      </section>
+
+      <section class="popup popup_edit">
+        <form action="#" method="POST" class="popup__container">
+          <h3 class="popup__title">Редактировать профиль</h3>
+          <input type="text" class="popup__name" placeholder="Имя">
+          <input type="text" class="popup__about" placeholder="О себе">
+          <button type="submit" class="button popup__submit">Сохранить</button>
+          <button type="reset" class="button popup__close"><img src="./images/icons/сlose.svg" alt="закрыть форму" class="button__image"></button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer section">
+      <div class="footer__copyright">&copy; Mesto Russia</div>
+    </footer>
+
+  </body>
+</html>
