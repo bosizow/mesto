@@ -6,3 +6,6 @@
 @import url(../blocks/page/page.css);
 @import url(../blocks/page/__section/page__section.css);
 
+/* button */
+@import url(../blocks/button/button.css);
+
