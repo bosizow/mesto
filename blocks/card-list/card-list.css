@@ -1,12 +1,22 @@
 .card-list {
   display: grid;
+  width: 100%;
+  max-width: 880px;
   justify-content: center;
   grid-template-columns: 1fr;
   grid-template-rows: minmax(min-content, max-content);
+  grid-column-gap: 17px;
+  grid-row-gap: 20px;
+}
+
+@media screen and (min-width: calc(282px * 2 + 17px + 19px * 2)){
+  .card-list{
+    grid-template-columns: repeat(2, 2fr);
+  }
 }
 
 @media screen and (min-width: calc(880px + 19px * 2)){
   .card-list{
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 282px);
   }
 }

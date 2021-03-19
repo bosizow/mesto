@@ -1,0 +1,7 @@
+.card__image {
+  display: block;
+  width: 100%;
+  min-height: 282px;
+  grid-area: image;
+  background-color: rgba(0, 0, 0, .7);
+}

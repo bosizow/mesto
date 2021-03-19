@@ -17,6 +17,4 @@
 
 .button:focus {
   opacity: .6;
-  /* нужно ли остлавить outline при фокусе на кнопке? */
-  outline: none;
 }

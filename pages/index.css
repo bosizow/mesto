@@ -27,3 +27,11 @@
 
 /* card-list */
 @import url(../blocks/card-list/card-list.css);
+
+/* card */
+@import url(../blocks/card/card.css);
+@import url(../blocks/card/__figure/card__figure.css);
+@import url(../blocks/card/__image/card__image.css);
+@import url(../blocks/card/__description/card__description.css);
+@import url(../blocks/card/__button/card__button.css);
+@import url(../blocks/card/__button/_type/card__button_type_like.css);
