@@ -46,3 +46,6 @@
 @import url(../blocks/popup/__button/_type/popup__button_type_submit.css);
 @import url(../blocks/popup/__button/_type/popup__button_type_close.css);
 
+/* footer */
+@import url(../blocks/footer/footer.css);
+

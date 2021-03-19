@@ -15,7 +15,7 @@
   color: #fff;
 }
 
-@media screen and (min-width: calc(430px + 40px * 2)){
+@media screen and (min-width: calc(430px + 55px * 2)){
   .popup__button_type_submit {
     margin-top: 50px;
     font-size: 18px;
