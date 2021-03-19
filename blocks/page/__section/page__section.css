@@ -1,0 +1,14 @@
+.page__section {
+  display: block;
+  width: calc( 100% - 19px * 2 );
+  max-width: 880px;
+  margin: 0 19px;
+  overflow: hidden;
+}
+
+/* выбрал переломную точку 880px потому что это максимальная ширина блоков в макете и 19px - это размер 2ух отступов по краям */
+@media screen and (min-width: calc(880px + 19px * 2)){
+  .page__section {
+    margin: auto;
+  }
+}
