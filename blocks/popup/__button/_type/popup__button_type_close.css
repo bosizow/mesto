@@ -1,0 +1,24 @@
+.popup__button_type_close {
+  display: block;
+  width: 36px;
+  height: 36px;
+
+  position: absolute;
+  top: calc(-13px - 36px);
+  right: 0;
+
+  background-image: url(../../../../images/icons/сlose.svg);
+  background-size: 36px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media screen and (min-width: calc(430px + 40px * 2)){
+  .popup__button_type_close {
+    width: 55px;
+    height: 55px;
+    top: -47px;
+    right: -47px;
+    background-size: 55px;
+  }
+}

@@ -1,0 +1,24 @@
+.popup__button_type_submit {
+  display: block;
+  width: 100%;
+  padding: 14px 0;
+  margin-top: 45px;
+
+  background: #000;
+  border-radius: 2px;
+
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #fff;
+}
+
+@media screen and (min-width: calc(430px + 40px * 2)){
+  .popup__button_type_submit {
+    margin-top: 50px;
+    font-size: 18px;
+    line-height: 21px;
+  }
+}
