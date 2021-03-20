@@ -1,17 +1,22 @@
-.profile__profesion {
+.profile__about {
   grid-area: profesion;
   margin: 0;
   padding: 7px 0 34px 0;
+  max-width: calc(100vw - 20px - 19px * 2);
 
   font-weight: 400;
   font-style: normal;
   font-size: 14px;
   text-align: center;
   line-height: 17px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media screen and (min-width: calc(880px + 19px * 2)){
-  .profile__profesion {
+  .profile__about {
+    max-width: 550px;
     padding: 0;
     padding-left: 30px;
 

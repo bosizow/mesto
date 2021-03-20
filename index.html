@@ -17,7 +17,7 @@
         <article class="profile__info">
           <img src="./images/profile/cousteau.png" alt="Жак-Ив Кусто" class="profile__photo">
           <h2 class="profile__name">Жак-Ив Кусто</h2>
-          <p class="profile__profesion">Исследователь океана</p>
+          <p class="profile__about">Исследователь океана</p>
           <button type="button" class="button profile__button profile__button_type_edit"></button>
         </article>
         <button type="button" class="button profile__button profile__button_type_add"></button>
@@ -75,10 +75,10 @@
       </section>
 
       <section class="popup popup_type_edit">
-        <form action="#" method="POST" class="popup__container">
+        <form action="#" class="popup__container">
           <h3 class="popup__title">Редактировать профиль</h3>
-          <input type="text" class="popup__input" placeholder="Имя">
-          <input type="text" class="popup__input" placeholder="О себе">
+          <input type="text" class="popup__input popup__input_type_name" placeholder="Имя" value="">
+          <input type="text" class="popup__input popup__input_type_about" placeholder="О себе" value="">
           <button type="submit" class="button popup__button_type_submit">Сохранить</button>
           <button type="reset" class="button popup__button_type_close"></button>
         </form>
@@ -88,6 +88,8 @@
     <footer class="footer page__section">
       <div class="footer__copyright">&copy; Mesto Russia</div>
     </footer>
+
+    <script src="./script.js"></script>
 
   </body>
 </html>
