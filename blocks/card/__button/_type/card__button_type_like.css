@@ -1,6 +1,9 @@
 .card__button_type_like {
   display: block;
-  width: 100%;
+  width: 22px;
+  height: 22px;
+  align-self: center;
+  justify-self: center;
   grid-area: button_type_like;
 
   background-image: url(../../../../images/icons/like_disabled.svg);
