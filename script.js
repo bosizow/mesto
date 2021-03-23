@@ -4,21 +4,16 @@ let userAbout = document.querySelector('.profile__about');
 // кнопка редактирования
 let editButton = document.querySelector('.profile__button_type_edit');
 // popup Edit
-let editForm = document.querySelector('.popup_type_edit');
-let closeButton = editForm.querySelector('.popup__button_type_close');
-let submitButton = editForm.querySelector('.popup__button_type_submit');
-let inputName = editForm.querySelector('.popup__input_type_name');
-let inputAbout = editForm.querySelector('.popup__input_type_about');
-
-// отслеживаем клики по кнопкам
-editButton.addEventListener('click', openEditForm);
-closeButton.addEventListener('click', closeEditForm);
-submitButton.addEventListener('click', changeUserInfo);
+let popup = document.querySelector('.popup');
+let closeButton = popup.querySelector('.popup__button_type_close');
+let inputName = popup.querySelector('.popup__input_type_name');
+let inputAbout = popup.querySelector('.popup__input_type_about');
+let formEdit = popup.querySelector('.popup__form_type_edit');
 
 // функция открытия popup
-function openEditForm() {
-  // логика: добавлять селектор popup_opened блоку popup_type_edit (editForm)
-  editForm.classList.add('popup_opened');
+function openPopup() {
+  // логика: добавлять селектор popup_opened блоку popup_type_edit (popup)
+  popup.classList.add('popup_opened');
   // заполнить значение аргумента value тега popup__input_type_name
   inputName.value = userName.textContent;
   // заполнить значение аргумента value тега popup__input_type_about
@@ -26,24 +21,25 @@ function openEditForm() {
 }
 
 // функция закрытия popup
-function closeEditForm() {
-  // логика: убирать селектор popup_opened у блока popup_type_edit (editForm)
-  editForm.classList.remove('popup_opened');
+function closePopup() {
+  // логика: убирать селектор popup_opened у блока popup_type_edit (popup)
+  popup.classList.remove('popup_opened');
 }
 
 // функция изменения имени и профессии
 function changeUserInfo(evt) {
   // отменяем перезагрузку страницы
   evt.preventDefault();
-  // собираем введенную информацию
-  let newUserName = editForm.querySelector('.popup__input_type_name').value;
-  let newUserAbout = editForm.querySelector('.popup__input_type_about').value;
 
   // меняем значения имя и профессию на странице
-  userName.textContent = newUserName;
-  userAbout.textContent = newUserAbout;
+  userName.textContent = inputName.value;
+  userAbout.textContent = inputAbout.value;
+
   // закрываем
-  closeEditForm();
+  closePopup();
 }
 
-// важно сделать так что бы страница не перезагружалась
+// отслеживаем клики по кнопкам
+editButton.addEventListener('click', openPopup);
+closeButton.addEventListener('click', closePopup);
+formEdit.addEventListener('submit', changeUserInfo);
