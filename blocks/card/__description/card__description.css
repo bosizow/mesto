@@ -1,6 +1,7 @@
 .card__description {
   display: block;
   width: 199px;
+  margin: 0;
   grid-area: description;
   padding: 25px 0 0 21px;
 
