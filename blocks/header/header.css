@@ -4,7 +4,7 @@
   box-sizing: border-box;
   margin: auto;
   padding: 28px 27px 31px 27px;
-  border-bottom: 1px solid rgba(84, 84, 84, 7);
+  border-bottom: 1px solid rgba(84, 84, 84, .7);
 }
 
 @media screen and (min-width: calc(880px + 19px * 2)){

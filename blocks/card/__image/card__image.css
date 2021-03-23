@@ -1,7 +1,20 @@
 .card__image {
   display: block;
-  width: 100%;
-  min-height: 282px;
+  min-width: 100%;
+  height: calc(100vw - 19px * 2);
+  object-fit: cover;
   grid-area: image;
   background-color: rgba(0, 0, 0, .7);
+}
+
+@media screen and (min-width: calc(282px * 2 + 17px + 19px * 2)){
+  .card__image{
+    height: calc((100vw - 19px * 2 - 17px) / 2);
+  }
+}
+
+@media screen and (min-width: calc(880px + 19px * 2)){
+  .card__image{
+    height: 282px;
+  }
 }
