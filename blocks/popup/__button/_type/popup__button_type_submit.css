@@ -15,6 +15,10 @@
   color: #fff;
 }
 
+.popup__button_type_submit:hover {
+  opacity: .8;
+}
+
 @media screen and (min-width: calc(430px + 55px * 2)){
   .popup__button_type_submit {
     margin-top: 50px;
