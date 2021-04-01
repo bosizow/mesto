@@ -1,0 +1,10 @@
+.plug {
+  display: flex;
+  width: 100%;
+  min-height: 361px;
+  grid-column: 1/4;
+  grid-row: 1/2;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -28,6 +28,11 @@
 /* card-list */
 @import url(../blocks/card-list/card-list.css);
 
+/* plug */
+@import url(../blocks/plug/plug.css);
+@import url(../blocks/plug/__title/plug__title.css);
+@import url(../blocks/plug/__text/plug__text.css);
+
 /* card */
 @import url(../blocks/card/card.css);
 @import url(../blocks/card/__image/card__image.css);

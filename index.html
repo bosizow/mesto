@@ -16,50 +16,14 @@
       <section class="profile">
         <div class="profile__info">
           <img src="./images/profile/cousteau.png" alt="Жак-Ив Кусто" class="profile__photo">
-          <h1 class="profile__name">Жак-Ив Кусто длинная строка что бы появился скрол вот тут</h1>
-          <p class="profile__about">Исследователь океана длинная строка что бы появился скрол вот тут длинная строка что бы появился скрол вот тут</p>
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <p class="profile__about">Исследователь океана</p>
           <button type="button" class="button profile__button profile__button_type_edit" aria-label="редактировать профиль"></button>
         </div>
         <button type="button" class="button profile__button profile__button_type_add" aria-label="добавить новое фото"></button>
       </section>
 
       <section class="card-list">
-
-        <article class="card">
-          <img src="./images/card-list/burcin-ergunt-3AUjiNe1KcQ-unsplash.jpg" alt="Мастерская" class="card__image">
-          <h2 class="card__description">Мастерская</h2>
-          <button type="button" class="button card__button card__button_type_like" aria-label="нравиться"></button>
-        </article>
-
-        <article class="card">
-          <img src="./images/card-list/mount-elbrus.png" alt="Гора Эльбрус" class="card__image">
-          <h2 class="card__description">Гора Эльбрус</h2>
-          <button type="button" class="button card__button card__button_type_like" aria-label="нравиться"></button>
-        </article>
-
-        <article class="card">
-          <img src="./images/card-list/dombai.png" alt="Домбай" class="card__image">
-          <h2 class="card__description">Домбай</h2>
-          <button type="button" class="button card__button card__button_type_like" aria-label="нравиться"></button>
-        </article>
-
-        <article class="card">
-          <img src="./images/card-list/mount-elbrus.png" alt="Гора Эльбрус" class="card__image">
-          <h2 class="card__description">Гора Эльбрус</h2>
-          <button type="button" class="button card__button card__button_type_like" aria-label="нравиться"></button>
-        </article>
-
-        <article class="card">
-          <img src="./images/card-list/dombai.png" alt="Домбай" class="card__image">
-          <h2 class="card__description">Домбай</h2>
-          <button type="button" class="button card__button card__button_type_like" aria-label="нравиться"></button>
-        </article>
-
-        <article class="card">
-          <img src="./images/card-list/karachayevsk.png" alt="Карачаево-Черкесия" class="card__image">
-          <h2 class="card__description">Карачаево-Черкесия</h2>
-          <button type="button" class="button card__button card__button_type_like" aria-label="нравиться"></button>
-        </article>
       </section>
 
       <section class="popup">
@@ -78,6 +42,20 @@
     <footer class="footer page__section">
       <p class="footer__copyright">&copy; Mesto Russia</p>
     </footer>
+
+    <template id="card">
+      <article class="card">
+        <img src="./images/card-list/pattern.jpg" alt="название картинки" class="card__image">
+        <h2 class="card__description">название картинки</h2>
+        <button type="button" class="button card__button card__button_type_like" aria-label="нравиться"></button>
+      </article>
+    </template>
+    <template id="plug">
+      <article class="plug">
+        <h2 class="plug__title">&#128521</h2>
+        <p class="plug__text">обновите страницу и я все починю</p>
+      </article>
+    </template>
 
     <script src="./script.js"></script>
 

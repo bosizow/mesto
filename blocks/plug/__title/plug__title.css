@@ -1,0 +1,18 @@
+.plug__title {
+  margin: 0;
+  padding: 0;
+
+  font-weight: 500;
+  font-style: normal;
+  font-size: 27px;
+  text-align: center;
+  line-height: 32px;
+}
+
+
+@media screen and (min-width: calc(880px + 19px * 2)){
+  .plug__title {
+    font-size: 42px;
+    line-height: 48px;
+  }
+}
