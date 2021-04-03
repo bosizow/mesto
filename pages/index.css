@@ -2,6 +2,10 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts.css);
 
+/* keyframes */
+@import url(../blocks/opening/opening.css);
+@import url(../blocks/closing/closing.css);
+
 /* page */
 @import url(../blocks/page/page.css);
 @import url(../blocks/page/__section/page__section.css);

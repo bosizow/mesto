@@ -55,9 +55,6 @@ const inputAboutPopupTypeEdit = popupTypeEdit.querySelector('.popup__input_type_
 const popupTypeImage = document.querySelector('.popup_type_image');
 const buttonClosePopupTypeImage = popupTypeImage.querySelector('.popup__button_type_close');
 
-inputNamePopupTypeEdit.value = userName.textContent;
-inputAboutPopupTypeEdit.value = userAbout.textContent;
-
 if ( Array.isArray(initialCards) && initialCards.length !== 0 ) {
 
   const cardsListArr = initialCards.map((item) => {
@@ -82,16 +79,21 @@ if ( Array.isArray(initialCards) && initialCards.length !== 0 ) {
 
 }
 
-// также при удалении всех карточек выводить plug
-
 // функции открытия popup
 function openPopupTypeAdd() {
   popupTypeAdd.classList.add('popup_opened');
+  popupTypeAdd.setAttribute('style', 'animation: opening .5s linear;');
 
 }
 
 function openPopupTypeEdit() {
+
+  inputNamePopupTypeEdit.value = userName.textContent;
+  inputAboutPopupTypeEdit.value = userAbout.textContent;
+
   popupTypeEdit.classList.add('popup_opened');
+  popupTypeEdit.setAttribute('style', 'animation: opening .5s linear;');
+
 }
 
 function openPopupTypeImage(link, description) {
@@ -104,6 +106,7 @@ function openPopupTypeImage(link, description) {
   popupDescription.textContent = description;
 
   popupTypeImage.classList.add('popup_opened');
+  popupTypeImage.setAttribute('style', 'animation: opening .5s linear;');
 
 }
 
@@ -111,6 +114,7 @@ function openPopupTypeImage(link, description) {
 function closePopup() {
   const popupIsOpened = document.querySelector('.popup_opened');
   popupIsOpened.classList.remove('popup_opened');
+  popupIsOpened.setAttribute('style', 'animation: closing .5s linear;');
 }
 
 // функция изменения имени и профессии

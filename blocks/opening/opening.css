@@ -1,0 +1,12 @@
+@keyframes opening{
+  from{
+    opacity: 0;
+    visibility: hidden;
+  }
+  5% {
+    visibility: visible;
+  }
+  to{
+    opacity: 1;
+  }
+}
