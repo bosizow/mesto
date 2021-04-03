@@ -1,0 +1,4 @@
+.card__button_type_like-checked {
+  background-image: url(../../../../images/icons/like_active.svg);
+  opacity: 1;
+}

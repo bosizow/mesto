@@ -131,8 +131,15 @@ function addCard(evt) {
 // отслеживаем клики и отправления форм
 addButton.addEventListener('click', openPopupTypeAdd);
 buttonClosePopupTypeAdd.addEventListener('click', closePopupTypeAdd);
-formPopupTypeAdd.addEventListener('submit', addCard); // почему-то не работает
+formPopupTypeAdd.addEventListener('submit', addCard);
 
 editButton.addEventListener('click', openPopupTypeEdit);
 buttonClosePopupTypeEdit.addEventListener('click', closePopupTypeEdit);
-formPopupTypeEdit.addEventListener('submit', editUserInfo); // почему-то не работает
+formPopupTypeEdit.addEventListener('submit', editUserInfo);
+
+cardsList.addEventListener('click', function(evt){
+  const eventTarget = evt.target;
+  if(eventTarget.classList.contains('card__button_type_like')){
+    eventTarget.classList.toggle('card__button_type_like-checked');
+  }
+})

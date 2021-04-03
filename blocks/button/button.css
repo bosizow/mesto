@@ -16,6 +16,5 @@
 }
 
 .button:focus {
-  opacity: .6;
   outline: none;
 }
