@@ -25,16 +25,37 @@ const initialCards = [
   }
 ];
 
+
+const content = document.querySelector('.content');
 const cardsList = document.querySelector('.card-list');
+
 const plug = document.querySelector('#plug').content;
 const card = document.querySelector('#card').content;
 
-if(initialCards.length === 0) {
+const profile = document.querySelector('.profile');
 
-  cardsList.prepend(plug);
+const addButton = profile.querySelector('.profile__button_type_add');
+const editButton = profile.querySelector('.profile__button_type_edit');
 
-} else if (initialCards.length !== 0) {
+const userName = profile.querySelector('.profile__name');
+const userAbout = profile.querySelector('.profile__about');
 
+const popupTypeAdd = document.querySelector('.popup_type_add');
+const formPopupTypeAdd = popupTypeAdd.querySelector('.popup__form');
+const buttonClosePopupTypeAdd = popupTypeAdd.querySelector('.form__button_type_close');
+const inputNamePopupTypeAdd = popupTypeAdd.querySelector('.form__input_type_name');
+const inputLinkPopupTypeAdd = popupTypeAdd.querySelector('.form__input_type_link');
+
+const popupTypeEdit = document.querySelector('.popup_type_edit');
+const formPopupTypeEdit = popupTypeEdit.querySelector('.popup__form');
+const buttonClosePopupTypeEdit = popupTypeEdit.querySelector('.form__button_type_close');
+const inputNamePopupTypeEdit = popupTypeEdit.querySelector('.form__input_type_name');
+const inputAboutPopupTypeEdit = popupTypeEdit.querySelector('.form__input_type_about');
+
+inputNamePopupTypeEdit.value = userName.textContent;
+inputAboutPopupTypeEdit.value = userAbout.textContent;
+
+if ( Array.isArray(initialCards) && initialCards.length !== 0 ) {
 
   const cardsListArr = initialCards.map((item) => {
 
@@ -60,41 +81,58 @@ if(initialCards.length === 0) {
 
 // также при удалении всех карточек выводить plug
 
-// инофрмация о пользователе
-const userName = document.querySelector('.profile__name');
-const userAbout = document.querySelector('.profile__about');
-// кнопка редактирования
-const editButton = document.querySelector('.profile__button_type_edit');
-// popup
-const popup = document.querySelector('.popup');
-const closeButton = popup.querySelector('.popup__button_type_close');
-const inputName = popup.querySelector('.popup__input_type_name');
-const inputAbout = popup.querySelector('.popup__input_type_about');
-const formEdit = popup.querySelector('.popup__form_type_edit');
+// функции открытия popup
+function openPopupTypeAdd() {
+  popupTypeAdd.classList.add('popup_opened');
 
-// функция открытия popup
-function openPopup() {
-  popup.classList.add('popup_opened');
-  inputName.value = userName.textContent;
-  inputAbout.value = userAbout.textContent;
 }
 
-// функция закрытия popup
-function closePopup() {
-  popup.classList.remove('popup_opened');
+function openPopupTypeEdit() {
+  popupTypeEdit.classList.add('popup_opened');
+}
+
+// функции закрытия popup
+function closePopupTypeAdd() {
+  popupTypeAdd.classList.remove('popup_opened');
+}
+
+function closePopupTypeEdit() {
+  popupTypeEdit.classList.remove('popup_opened');
 }
 
 // функция изменения имени и профессии
-function changeUserInfo(evt) {
+function editUserInfo(evt) {
   evt.preventDefault();
 
-  userName.textContent = inputName.value;
-  userAbout.textContent = inputAbout.value;
+  userName.textContent = inputNamePopupTypeEdit.value;
+  userAbout.textContent = inputAboutPopupTypeEdit.value;
 
-  closePopup();
+  closePopupTypeEdit();
 }
 
-// отслеживаем клики по кнопкам
-editButton.addEventListener('click', openPopup);
-closeButton.addEventListener('click', closePopup);
-formEdit.addEventListener('submit', changeUserInfo);
+// функция добавления новой карточки
+function addCard(evt) {
+  evt.preventDefault();
+
+  const newCard = card.cloneNode(true);
+
+  const newCardImage = newCard.querySelector('.card__image');
+  const newCardDescription = newCard.querySelector('.card__description');
+
+  newCardImage.setAttribute('src', inputLinkPopupTypeAdd.value);
+  newCardImage.setAttribute('alt', inputNamePopupTypeAdd.value);
+  newCardDescription.textContent = inputNamePopupTypeAdd.value;
+
+  cardsList.prepend(newCard);
+
+  closePopupTypeAdd();
+}
+
+// отслеживаем клики и отправления форм
+addButton.addEventListener('click', openPopupTypeAdd);
+buttonClosePopupTypeAdd.addEventListener('click', closePopupTypeAdd);
+formPopupTypeAdd.addEventListener('submit', addCard); // почему-то не работает
+
+editButton.addEventListener('click', openPopupTypeEdit);
+buttonClosePopupTypeEdit.addEventListener('click', closePopupTypeEdit);
+formPopupTypeEdit.addEventListener('submit', editUserInfo); // почему-то не работает
