@@ -52,6 +52,10 @@ if(initialCards.length === 0) {
 
   cardsList.prepend(...cardsListArr);
 
+} else {
+
+  cardsList.prepend(plug);
+
 }
 
 // также при удалении всех карточек выводить plug
