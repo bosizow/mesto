@@ -29,11 +29,11 @@
       <section class="popup popup_type_edit">
         <div class="popup__container popup__container_type_form">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <form action="#" class="popup__form form form__type_edit" name="edit">
-            <input type="text" class="form__input form__input_type_name" placeholder="Имя" name="name" value="" autocomplete="off">
-            <input type="text" class="form__input form__input_type_about" placeholder="О себе" name="about" value="" autocomplete="off">
-            <button type="submit" class="button form__button form__button_type_submit">Сохранить</button>
-            <button type="reset" class="button form__button form__button_type_close" aria-label="закрыть"></button>
+          <form action="#" class="popup__form  popup__form_type_edit" name="edit">
+            <input type="text" class="popup__input popup__input_type_name" placeholder="Имя" name="name" value="" autocomplete="off">
+            <input type="text" class="popup__input popup__input_type_about" placeholder="О себе" name="about" value="" autocomplete="off">
+            <button type="submit" class="button popup__button popup__button_type_submit">Сохранить</button>
+            <button type="reset" class="button popup__button popup__button_type_close" aria-label="закрыть"></button>
           </form>
         </div>
       </section>
@@ -42,12 +42,20 @@
       <section class="popup popup_type_add">
         <div class="popup__container popup__container_type_form">
           <h2 class="popup__title">Новое место</h2>
-          <form action="#" class="popup__form form form__type_add" name="add">
-            <input type="text" class="form__input form__input_type_name" placeholder="Название" name="name" value="" autocomplete="off" required>
-            <input type="text" class="form__input form__input_type_link" placeholder="Ссылка на картинку" name="link" value="" autocomplete="off" required>
-            <button type="submit" class="button form__button form__button_type_submit">Создать</button>
-            <button type="reset" class="button form__button form__button_type_close" aria-label="закрыть"></button>
+          <form action="#" class="popup__form popup__form_type_add" name="add">
+            <input type="text" class="popup__input popup__input_type_name" placeholder="Название" name="name" value="" autocomplete="off" required>
+            <input type="text" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку" name="link" value="" autocomplete="off" required>
+            <button type="submit" class="button popup__button popup__button_type_submit">Создать</button>
+            <button type="reset" class="button popup__button popup__button_type_close" aria-label="закрыть"></button>
           </form>
+        </div>
+      </section>
+
+      <section class="popup popup_type_image">
+        <div class="popup__container popup__container_type_image">
+          <img src="./images/card-list/karachayevsk.png" alt="название картинки" class="popup__image">
+          <h3 class="popup__image-description">Карачаево-Черкессия</h3>
+          <button type="reset" class="button popup__button popup__button_type_close" aria-label="закрыть"></button>
         </div>
       </section>
 

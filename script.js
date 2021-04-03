@@ -42,15 +42,18 @@ const userAbout = profile.querySelector('.profile__about');
 
 const popupTypeAdd = document.querySelector('.popup_type_add');
 const formPopupTypeAdd = popupTypeAdd.querySelector('.popup__form');
-const buttonClosePopupTypeAdd = popupTypeAdd.querySelector('.form__button_type_close');
-const inputNamePopupTypeAdd = popupTypeAdd.querySelector('.form__input_type_name');
-const inputLinkPopupTypeAdd = popupTypeAdd.querySelector('.form__input_type_link');
+const buttonClosePopupTypeAdd = popupTypeAdd.querySelector('.popup__button_type_close');
+const inputNamePopupTypeAdd = popupTypeAdd.querySelector('.popup__input_type_name');
+const inputLinkPopupTypeAdd = popupTypeAdd.querySelector('.popup__input_type_link');
 
 const popupTypeEdit = document.querySelector('.popup_type_edit');
 const formPopupTypeEdit = popupTypeEdit.querySelector('.popup__form');
-const buttonClosePopupTypeEdit = popupTypeEdit.querySelector('.form__button_type_close');
-const inputNamePopupTypeEdit = popupTypeEdit.querySelector('.form__input_type_name');
-const inputAboutPopupTypeEdit = popupTypeEdit.querySelector('.form__input_type_about');
+const buttonClosePopupTypeEdit = popupTypeEdit.querySelector('.popup__button_type_close');
+const inputNamePopupTypeEdit = popupTypeEdit.querySelector('.popup__input_type_name');
+const inputAboutPopupTypeEdit = popupTypeEdit.querySelector('.popup__input_type_about');
+
+const popupTypeImage = document.querySelector('.popup_type_image');
+const buttonClosePopupTypeImage = popupTypeImage.querySelector('.popup__button_type_close');
 
 inputNamePopupTypeEdit.value = userName.textContent;
 inputAboutPopupTypeEdit.value = userAbout.textContent;
@@ -91,13 +94,23 @@ function openPopupTypeEdit() {
   popupTypeEdit.classList.add('popup_opened');
 }
 
-// функции закрытия popup
-function closePopupTypeAdd() {
-  popupTypeAdd.classList.remove('popup_opened');
+function openPopupTypeImage(link, description) {
+
+  const popupImage = popupTypeImage.querySelector('.popup__image');
+  const popupDescription = popupTypeImage.querySelector('.popup__image-description');
+
+  popupImage.setAttribute('src', link);
+  popupImage.setAttribute('alt', description);
+  popupDescription.textContent = description;
+
+  popupTypeImage.classList.add('popup_opened');
+
 }
 
-function closePopupTypeEdit() {
-  popupTypeEdit.classList.remove('popup_opened');
+// функции закрытия popup
+function closePopup() {
+  const popupIsOpened = document.querySelector('.popup_opened');
+  popupIsOpened.classList.remove('popup_opened');
 }
 
 // функция изменения имени и профессии
@@ -130,12 +143,14 @@ function addCard(evt) {
 
 // отслеживаем клики и отправления форм
 addButton.addEventListener('click', openPopupTypeAdd);
-buttonClosePopupTypeAdd.addEventListener('click', closePopupTypeAdd);
+buttonClosePopupTypeAdd.addEventListener('click', closePopup);
 formPopupTypeAdd.addEventListener('submit', addCard);
 
 editButton.addEventListener('click', openPopupTypeEdit);
-buttonClosePopupTypeEdit.addEventListener('click', closePopupTypeEdit);
+buttonClosePopupTypeEdit.addEventListener('click', closePopup);
 formPopupTypeEdit.addEventListener('submit', editUserInfo);
+
+buttonClosePopupTypeImage.addEventListener('click', closePopup);
 
 cardsList.addEventListener('click', function(evt){
   const eventTarget = evt.target;
@@ -150,5 +165,12 @@ cardsList.addEventListener('click', function(evt){
     if (cardsList.children.length === 0 ) {
       cardsList.prepend(plug);
     }
+  }
+
+  if(eventTarget.classList.contains('card__image')){
+    const eventTargetImage = eventTarget.src;
+    const eventTargetDescription = eventTarget.alt;
+
+    openPopupTypeImage(eventTargetImage, eventTargetDescription);
   }
 })
