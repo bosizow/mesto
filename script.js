@@ -139,7 +139,16 @@ formPopupTypeEdit.addEventListener('submit', editUserInfo);
 
 cardsList.addEventListener('click', function(evt){
   const eventTarget = evt.target;
+
   if(eventTarget.classList.contains('card__button_type_like')){
     eventTarget.classList.toggle('card__button_type_like-checked');
+  }
+
+  if(eventTarget.classList.contains('card__button_type_delete')){
+    const eventTargetParentElement = eventTarget.parentElement;
+    eventTargetParentElement.remove(eventTargetParentElement);
+    if (cardsList.children.length === 0 ) {
+      cardsList.prepend(plug);
+    }
   }
 })

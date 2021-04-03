@@ -7,6 +7,8 @@
   "image image"
   "description button_type_like";
 
+  position: relative;
+
   padding: 0;
   margin: 0;
 
