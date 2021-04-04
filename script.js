@@ -82,7 +82,7 @@ if ( Array.isArray(initialCards) && initialCards.length !== 0 ) {
 // функции открытия popup
 function openPopupTypeAdd() {
   popupTypeAdd.classList.add('popup_opened');
-  popupTypeAdd.setAttribute('style', 'animation: opening .5s linear;');
+  popupTypeAdd.setAttribute('style', 'animation: opening .2s linear;');
 
 }
 
@@ -92,7 +92,7 @@ function openPopupTypeEdit() {
   inputAboutPopupTypeEdit.value = userAbout.textContent;
 
   popupTypeEdit.classList.add('popup_opened');
-  popupTypeEdit.setAttribute('style', 'animation: opening .5s linear;');
+  popupTypeEdit.setAttribute('style', 'animation: opening .2s linear;');
 
 }
 
@@ -106,7 +106,7 @@ function openPopupTypeImage(link, description) {
   popupDescription.textContent = description;
 
   popupTypeImage.classList.add('popup_opened');
-  popupTypeImage.setAttribute('style', 'animation: opening .5s linear;');
+  popupTypeImage.setAttribute('style', 'animation: opening .2s linear;');
 
 }
 
@@ -114,7 +114,7 @@ function openPopupTypeImage(link, description) {
 function closePopup() {
   const popupIsOpened = document.querySelector('.popup_opened');
   popupIsOpened.classList.remove('popup_opened');
-  popupIsOpened.setAttribute('style', 'animation: closing .5s linear;');
+  popupIsOpened.setAttribute('style', 'animation: closing .2s linear;');
 }
 
 // функция изменения имени и профессии
@@ -124,7 +124,7 @@ function editUserInfo(evt) {
   userName.textContent = inputNamePopupTypeEdit.value;
   userAbout.textContent = inputAboutPopupTypeEdit.value;
 
-  closePopupTypeEdit();
+  closePopup();
 }
 
 // функция добавления новой карточки
@@ -142,7 +142,7 @@ function addCard(evt) {
 
   cardsList.prepend(newCard);
 
-  closePopupTypeAdd();
+  closePopup();
 }
 
 // отслеживаем клики и отправления форм
