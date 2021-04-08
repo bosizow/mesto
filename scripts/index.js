@@ -1,35 +1,5 @@
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
-
-const content = document.querySelector('.content');
 const cardsList = document.querySelector('.card-list');
 
-const plug = document.querySelector('#plug').content;
 const card = document.querySelector('#card').content;
 
 const profile = document.querySelector('.profile');
@@ -43,7 +13,7 @@ const userAbout = profile.querySelector('.profile__about');
 const popupTypeAdd = document.querySelector('.popup_type_add');
 const formPopupTypeAdd = popupTypeAdd.querySelector('.popup__form');
 const buttonClosePopupTypeAdd = popupTypeAdd.querySelector('.popup__button_type_close');
-const inputNamePopupTypeAdd = popupTypeAdd.querySelector('.popup__input_type_name');
+const inputTitlePopupTypeAdd = popupTypeAdd.querySelector('.popup__input_type_title');
 const inputLinkPopupTypeAdd = popupTypeAdd.querySelector('.popup__input_type_link');
 
 const popupTypeEdit = document.querySelector('.popup_type_edit');
@@ -55,29 +25,22 @@ const inputAboutPopupTypeEdit = popupTypeEdit.querySelector('.popup__input_type_
 const popupTypeImage = document.querySelector('.popup_type_image');
 const buttonClosePopupTypeImage = popupTypeImage.querySelector('.popup__button_type_close');
 
-if ( Array.isArray(initialCards) && initialCards.length !== 0 ) {
+// добавление карточек из массива
+const cardsListArr = initialCards.map((item) => {
 
-  const cardsListArr = initialCards.map((item) => {
+  const newCard = card.cloneNode(true);
 
-    const newCard = card.cloneNode(true);
+  const newCardImage = newCard.querySelector('.card__image');
+   const newCardDescription = newCard.querySelector('.card__description');
 
-    const newCardImage = newCard.querySelector('.card__image');
-    const newCardDescription = newCard.querySelector('.card__description');
+   newCardImage.setAttribute('src', item.link);
+   newCardImage.setAttribute('alt', item.name);
+   newCardDescription.textContent = item.name;
 
-    newCardImage.setAttribute('src', item.link);
-    newCardImage.setAttribute('alt', item.name);
-    newCardDescription.textContent = item.name;
+   return newCard;
+});
 
-    return newCard;
-  });
-
-  cardsList.prepend(...cardsListArr);
-
-} else {
-
-  cardsList.prepend(plug);
-
-}
+cardsList.prepend(...cardsListArr);
 
 // функции открытия popup
 function openPopupTypeAdd() {
@@ -137,8 +100,8 @@ function addCard(evt) {
   const newCardDescription = newCard.querySelector('.card__description');
 
   newCardImage.setAttribute('src', inputLinkPopupTypeAdd.value);
-  newCardImage.setAttribute('alt', inputNamePopupTypeAdd.value);
-  newCardDescription.textContent = inputNamePopupTypeAdd.value;
+  newCardImage.setAttribute('alt', inputTitlePopupTypeAdd.value);
+  newCardDescription.textContent = inputTitlePopupTypeAdd.value;
 
   cardsList.prepend(newCard);
 
@@ -166,9 +129,6 @@ cardsList.addEventListener('click', function(evt){
   if(eventTarget.classList.contains('card__button_type_delete')){
     const eventTargetParentElement = eventTarget.parentElement;
     eventTargetParentElement.remove(eventTargetParentElement);
-    if (cardsList.children.length === 0 ) {
-      cardsList.prepend(plug);
-    }
   }
 
   if(eventTarget.classList.contains('card__image')){
