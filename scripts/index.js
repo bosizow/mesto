@@ -12,18 +12,17 @@ const userAbout = profile.querySelector('.profile__about');
 
 const popupTypeAdd = document.querySelector('.popup_type_add');
 const formPopupTypeAdd = popupTypeAdd.querySelector('.popup__form');
-const buttonClosePopupTypeAdd = popupTypeAdd.querySelector('.popup__button_type_close');
 const inputTitlePopupTypeAdd = popupTypeAdd.querySelector('.popup__input_type_title');
 const inputLinkPopupTypeAdd = popupTypeAdd.querySelector('.popup__input_type_link');
 
 const popupTypeEdit = document.querySelector('.popup_type_edit');
 const formPopupTypeEdit = popupTypeEdit.querySelector('.popup__form');
-const buttonClosePopupTypeEdit = popupTypeEdit.querySelector('.popup__button_type_close');
 const inputNamePopupTypeEdit = popupTypeEdit.querySelector('.popup__input_type_name');
 const inputAboutPopupTypeEdit = popupTypeEdit.querySelector('.popup__input_type_about');
 
 const popupTypeImage = document.querySelector('.popup_type_image');
-const buttonClosePopupTypeImage = popupTypeImage.querySelector('.popup__button_type_close');
+
+const buttonClose = document.querySelectorAll('.popup__button_type_close');
 
 // добавление карточек из массива
 const cardsListArr = initialCards.map((item) => {
@@ -106,14 +105,12 @@ function addCard(evt) {
 
 // отслеживаем клики и отправления форм
 addButton.addEventListener('click', openPopupTypeAdd);
-buttonClosePopupTypeAdd.addEventListener('click', closePopup);
 formPopupTypeAdd.addEventListener('submit', addCard);
 
 editButton.addEventListener('click', openPopupTypeEdit);
-buttonClosePopupTypeEdit.addEventListener('click', closePopup);
 formPopupTypeEdit.addEventListener('submit', editUserInfo);
 
-buttonClosePopupTypeImage.addEventListener('click', closePopup);
+buttonClose.forEach((item) => {item.addEventListener('click', closePopup)});
 
 cardsList.addEventListener('click', function(evt){
   const eventTarget = evt.target;
