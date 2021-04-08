@@ -45,8 +45,6 @@ cardsList.prepend(...cardsListArr);
 // функции открытия popup
 function openPopupTypeAdd() {
   popupTypeAdd.classList.add('popup_opened');
-  popupTypeAdd.setAttribute('style', 'animation: opening .2s linear;');
-
 }
 
 function openPopupTypeEdit() {
@@ -55,8 +53,6 @@ function openPopupTypeEdit() {
   inputAboutPopupTypeEdit.value = userAbout.textContent;
 
   popupTypeEdit.classList.add('popup_opened');
-  popupTypeEdit.setAttribute('style', 'animation: opening .2s linear;');
-
 }
 
 function openPopupTypeImage(link, description) {
@@ -64,20 +60,20 @@ function openPopupTypeImage(link, description) {
   const popupImage = popupTypeImage.querySelector('.popup__image');
   const popupDescription = popupTypeImage.querySelector('.popup__image-description');
 
+  // тут ошибка в консоли
   popupImage.setAttribute('src', link);
   popupImage.setAttribute('alt', description);
   popupDescription.textContent = description;
 
   popupTypeImage.classList.add('popup_opened');
-  popupTypeImage.setAttribute('style', 'animation: opening .2s linear;');
-
 }
 
 // функции закрытия popup
 function closePopup() {
   const popupIsOpened = document.querySelector('.popup_opened');
   popupIsOpened.classList.remove('popup_opened');
-  popupIsOpened.setAttribute('style', 'animation: closing .2s linear;');
+  popupIsOpened.classList.add('popup_close');
+  // popupIsOpened.setAttribute('style', 'animation: closing .2s linear;');
 }
 
 // функция изменения имени и профессии
