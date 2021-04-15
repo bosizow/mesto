@@ -65,7 +65,6 @@
 @import url(../blocks/form/__field/form__field.css);
 @import url(../blocks/form/__input/form__input.css);
 @import url(../blocks/form/__input/_type/form__input_type_error.css);
-@import url(../blocks/form/__input/_type/form__input_type_text.css);
 @import url(../blocks/form/__placeholder/form__placehoolder.css);
 @import url(../blocks/form/__button/form__button.css);
 @import url(../blocks/form/__button/_type/form__button_type_submit.css);

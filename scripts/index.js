@@ -12,13 +12,13 @@ const userAbout = profile.querySelector('.profile__about');
 
 const popupTypeAdd = document.querySelector('.popup_type_add');
 const formPopupTypeAdd = popupTypeAdd.querySelector('.popup__form');
-const inputTitlePopupTypeAdd = popupTypeAdd.querySelector('.popup__input_type_title');
-const inputLinkPopupTypeAdd = popupTypeAdd.querySelector('.popup__input_type_link');
+const inputTitlePopupTypeAdd = popupTypeAdd.querySelector('.form__input_type_title');
+const inputLinkPopupTypeAdd = popupTypeAdd.querySelector('.form__input_type_link');
 
 const popupTypeEdit = document.querySelector('.popup_type_edit');
 const formPopupTypeEdit = popupTypeEdit.querySelector('.popup__form');
-const inputNamePopupTypeEdit = popupTypeEdit.querySelector('.popup__input_type_name');
-const inputAboutPopupTypeEdit = popupTypeEdit.querySelector('.popup__input_type_about');
+const inputNamePopupTypeEdit = popupTypeEdit.querySelector('.form__input_type_name');
+const inputAboutPopupTypeEdit = popupTypeEdit.querySelector('.form__input_type_about');
 
 const popupTypeImage = document.querySelector('.popup_type_image');
 
