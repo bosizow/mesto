@@ -1,7 +1,7 @@
 .popup__title {
   display: block;
   margin: 0;
-  margin-bottom: 65px;
+  margin-bottom: 70px;
   box-sizing: border-box;
 
   font-weight: 900;
@@ -12,7 +12,7 @@
 
 @media screen and (min-width: calc(430px + 55px * 2)){
   .popup__title {
-    margin-bottom: 38px;
+    margin-bottom: 44px;
 
     font-size: 24px;
     line-height: 29px;
