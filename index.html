@@ -40,10 +40,10 @@
       </article>
     </template>
 
-    <section class="popup popup_type_edit" novalidate>
+    <section class="popup popup_type_edit">
       <div class="popup__container popup__container_type_form">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form action="#" class="form popup__form" name="edit">
+        <form action="#" class="form popup__form" name="edit" novalidate>
           <fieldset class="form__set">
             <label class="form__field">
               <input type="text" class="form__input form__input_type_name" id="name-input" placeholder="Имя" name="name" value="" autocomplete="off" required minlength="2" maxlength="40">
@@ -58,12 +58,13 @@
           </fieldset>
         </form>
       </div>
+      <div class="popup__overlay"></div>
     </section>
 
-    <section class="popup popup_type_add" novalidate>
+    <section class="popup popup_type_add">
       <div class="popup__container popup__container_type_form">
         <h2 class="popup__title">Новое место</h2>
-        <form action="#" class="form popup__form" name="add">
+        <form action="#" class="form popup__form" name="add" novalidate>
           <fieldset class="form__set">
             <label class="form__field">
               <input type="text" class="form__input form__input_type_title" id="title-input" placeholder="Название" name="title" autocomplete="off" required  minlength="2" maxlength="30">
@@ -78,14 +79,16 @@
           </fieldset>
         </form>
       </div>
+      <div class="popup__overlay"></div>
     </section>
 
-    <section class="popup popup_type_image">
+    <section class="popup popup_type_image popup_opened">
       <div class="popup__container popup__container_type_image">
         <img src="./images/card-list/pattern.jpg" alt="pattern" class="popup__image">
         <h3 class="popup__image-description">Карачаево-Черкессия</h3>
         <button type="reset" class="button popup__button popup__button_type_close" aria-label="закрыть"></button>
       </div>
+      <div class="popup__overlay popup__overlay_type_image"></div>
     </section>
 
     <script src="./scripts/cards.js"></script>

@@ -1,5 +1,4 @@
 const cardsList = document.querySelector('.card-list');
-
 const card = document.querySelector('#card').content;
 
 const profile = document.querySelector('.profile');
@@ -23,18 +22,19 @@ const inputAboutPopupTypeEdit = popupTypeEdit.querySelector('.form__input_type_a
 const popupTypeImage = document.querySelector('.popup_type_image');
 
 const buttonClose = document.querySelectorAll('.popup__button_type_close');
+const popupOverlay = document.querySelectorAll('.popup__overlay');
 
 // добавление карточек из массива
 initialCards.forEach((item) => {
   addCard(item.name, item.link);
 });
 
-
 const cardsListArr = Array.from(document.querySelectorAll('.card'));
 
 // функции открытия popup
 function openPopupTypeAdd() {
   popupTypeAdd.classList.add('popup_opened');
+  popupTypeAdd.classList.remove('popup_close');
 }
 
 function openPopupTypeEdit() {
@@ -43,6 +43,7 @@ function openPopupTypeEdit() {
   inputAboutPopupTypeEdit.value = userAbout.textContent;
 
   popupTypeEdit.classList.add('popup_opened');
+  popupTypeEdit.classList.remove('popup_close');
 }
 
 function openPopupTypeImage(link, description) {
@@ -55,6 +56,7 @@ function openPopupTypeImage(link, description) {
   popupDescription.textContent = description;
 
   popupTypeImage.classList.add('popup_opened');
+  popupTypeImage.classList.remove('popup_close');
 }
 
 // функции закрытия popup
@@ -109,6 +111,12 @@ function addCardFromForm(evt) {
 }
 
 // отслеживаем клики и отправления форм
+document.addEventListener('keydown', function (evt) {
+  if(evt.key === 'Escape'){
+    closePopup();
+  }
+});
+
 addButton.addEventListener('click', openPopupTypeAdd);
 formPopupTypeAdd.addEventListener('submit', addCardFromForm);
 
@@ -116,6 +124,7 @@ editButton.addEventListener('click', openPopupTypeEdit);
 formPopupTypeEdit.addEventListener('submit', editUserInfo);
 
 buttonClose.forEach((item) => {item.addEventListener('click', closePopup)});
+popupOverlay.forEach((item) => {item.addEventListener('click', closePopup)});
 
 cardsList.addEventListener('click', function(evt){
   const eventTarget = evt.target;
