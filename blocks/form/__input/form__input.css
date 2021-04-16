@@ -5,6 +5,7 @@
 
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
+  outline: none;
   background: transparent;
 
   font-weight: 400;
@@ -12,4 +13,10 @@
   font-size: 14px;
   line-height: 1;
   color: #000;
+
+  transition: border .3s;
+}
+
+.form__input:focus {
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
 }

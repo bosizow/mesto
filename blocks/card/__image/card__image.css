@@ -5,6 +5,7 @@
   object-fit: cover;
   grid-area: image;
   background-color: rgba(0, 0, 0, .7);
+  cursor: pointer;
 }
 
 @media screen and (min-width: calc(282px * 2 + 17px + 19px * 2)){
