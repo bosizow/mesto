@@ -86,10 +86,11 @@ function editUserInfo(evt) {
 }
 
 // функция добавления новой карточки
-function addCard(title,link){
+function createCard(title, link) {
+
   // принимает 2 аргумента: заголовок карточки и ссылку на изображение
   // клонирует шаблон карточки из template и наполняет полученными данными
-  // добавляет изображение в началао узла cardsList
+  // возвращает карточку
 
   const newCard = card.cloneNode(true);
 
@@ -100,6 +101,15 @@ function addCard(title,link){
   newCardImage.setAttribute('alt', title);
   newCardDescription.textContent = title;
 
+  return newCard;
+}
+function addCard(title,link){
+
+  // принимает 2 аргумента: заголовок карточки и ссылку на изображение
+  // создает карточку
+  // добавляет её в началао узла cardsList
+
+  const newCard = createCard(title, link);
   cardsList.prepend(newCard);
 }
 
