@@ -39,7 +39,6 @@ function openPopup(popup) {
 
 function openPopupTypeAdd() {
   openPopup(popupTypeAdd);
-  // popupTypeAdd.classList.remove('popup_close');
 }
 
 function openPopupTypeEdit() {
@@ -48,7 +47,6 @@ function openPopupTypeEdit() {
   inputAboutPopupTypeEdit.value = userAbout.textContent;
 
   openPopup(popupTypeEdit);
-  // popupTypeEdit.classList.remove('popup_close');
 }
 
 function openPopupTypeImage(link, description) {
@@ -58,7 +56,6 @@ function openPopupTypeImage(link, description) {
   popupDescription.textContent = description;
 
   openPopup(popupTypeImage);
-  // popupTypeImage.classList.remove('popup_close');
 }
 
 // функции закрытия popup

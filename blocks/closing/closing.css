@@ -1,10 +1,10 @@
 @keyframes closing{
   from{
     opacity: 1;
-    visibility: visible;
+    visibility: inherit;
   }
   99% {
-    visibility: visible;
+    visibility: inherit;
   }
   to{
     opacity: 0;
