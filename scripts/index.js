@@ -20,6 +20,8 @@ const inputNamePopupTypeEdit = popupTypeEdit.querySelector('.form__input_type_na
 const inputAboutPopupTypeEdit = popupTypeEdit.querySelector('.form__input_type_about');
 
 const popupTypeImage = document.querySelector('.popup_type_image');
+const popupImage = popupTypeImage.querySelector('.popup__image');
+const popupDescription = popupTypeImage.querySelector('.popup__image-description');
 
 const buttonsClose = document.querySelectorAll('.popup__button_type_close');
 const popupOverlays = document.querySelectorAll('.popup__overlay');
@@ -59,10 +61,18 @@ function openPopupTypeImage(link, description) {
 }
 
 // функции закрытия popup
-function closePopup() {
-  const popupIsOpened = document.querySelector('.popup_opened');
-  popupIsOpened.classList.remove('popup_opened');
-  popupIsOpened.classList.add('popup_close');
+function closeOpenedPopup() {
+  const openPopup = findOpenedPopup();
+  closePopup(openPopup);
+}
+
+function findOpenedPopup() {
+  const openPopup = document.querySelector('.popup_opened');
+  return openPopup;
+}
+
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
 }
 
 // функция изменения имени и профессии
@@ -72,7 +82,7 @@ function editUserInfo(evt) {
   userName.textContent = inputNamePopupTypeEdit.value;
   userAbout.textContent = inputAboutPopupTypeEdit.value;
 
-  closePopup();
+  closeOpenedPopup();
 }
 
 // функция добавления новой карточки
@@ -106,13 +116,13 @@ function addCardFromForm(evt) {
 
   addCard(titleFromFrom, linkFromForm);
 
-  closePopup();
+  closeOpenedPopup();
 }
 
 // отслеживаем клики и отправления форм
 document.addEventListener('keydown', function (evt) {
   if(evt.key === 'Escape'){
-    closePopup();
+    closeOpenedPopup();
   }
 });
 
@@ -122,8 +132,8 @@ formPopupTypeAdd.addEventListener('submit', addCardFromForm);
 editButton.addEventListener('click', openPopupTypeEdit);
 formPopupTypeEdit.addEventListener('submit', editUserInfo);
 
-buttonsClose.forEach((item) => {item.addEventListener('click', closePopup)});
-popupOverlays.forEach((item) => {item.addEventListener('click', closePopup)});
+buttonsClose.forEach((item) => {item.addEventListener('click', closeOpenedPopup)});
+popupOverlays.forEach((item) => {item.addEventListener('click', closeOpenedPopup)});
 
 cardsList.addEventListener('click', function(evt){
   const eventTarget = evt.target;
