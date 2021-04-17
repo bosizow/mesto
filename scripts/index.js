@@ -21,15 +21,13 @@ const inputAboutPopupTypeEdit = popupTypeEdit.querySelector('.form__input_type_a
 
 const popupTypeImage = document.querySelector('.popup_type_image');
 
-const buttonClose = document.querySelectorAll('.popup__button_type_close');
-const popupOverlay = document.querySelectorAll('.popup__overlay');
+const buttonsClose = document.querySelectorAll('.popup__button_type_close');
+const popupOverlays = document.querySelectorAll('.popup__overlay');
 
 // добавление карточек из массива
 initialCards.forEach((item) => {
   addCard(item.name, item.link);
 });
-
-const cardsListArr = Array.from(document.querySelectorAll('.card'));
 
 // функции открытия popup
 function openPopupTypeAdd() {
@@ -123,8 +121,8 @@ formPopupTypeAdd.addEventListener('submit', addCardFromForm);
 editButton.addEventListener('click', openPopupTypeEdit);
 formPopupTypeEdit.addEventListener('submit', editUserInfo);
 
-buttonClose.forEach((item) => {item.addEventListener('click', closePopup)});
-popupOverlay.forEach((item) => {item.addEventListener('click', closePopup)});
+buttonsClose.forEach((item) => {item.addEventListener('click', closePopup)});
+popupOverlays.forEach((item) => {item.addEventListener('click', closePopup)});
 
 cardsList.addEventListener('click', function(evt){
   const eventTarget = evt.target;
