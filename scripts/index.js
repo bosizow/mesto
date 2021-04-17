@@ -50,9 +50,6 @@ function openPopupTypeEdit() {
 
 function openPopupTypeImage(link, description) {
 
-  const popupImage = popupTypeImage.querySelector('.popup__image');
-  const popupDescription = popupTypeImage.querySelector('.popup__image-description');
-
   popupImage.setAttribute('src', link);
   popupImage.setAttribute('alt', description);
   popupDescription.textContent = description;
