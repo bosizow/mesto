@@ -34,6 +34,7 @@ initialCards.forEach((item) => {
 // функции открытия popup
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEscape);
 }
 
 function openPopupTypeAdd() {
@@ -73,6 +74,7 @@ function findOpenedPopup() {
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEscape);
 }
 
 // функция изменения имени и профессии
@@ -103,8 +105,8 @@ function createCard(title, link) {
 
   return newCard;
 }
-function addCard(title,link){
 
+function addCard(title,link){
   // принимает 2 аргумента: заголовок карточки и ссылку на изображение
   // создает карточку
   // добавляет её в началао узла cardsList
@@ -124,10 +126,20 @@ function addCardFromForm(evt) {
   const linkFromForm = inputLinkPopupTypeAdd.value;
   const titleFromFrom = inputTitlePopupTypeAdd.value;
 
+  inputLinkPopupTypeAdd.value = null;
+  inputTitlePopupTypeAdd.value = null;
+
   addCard(titleFromFrom, linkFromForm);
 
   closeOpenedPopup();
 }
+
+function closeByEscape(evt) {
+  if(evt.key === 'Escape'){
+    closeOpenedPopup();
+  }
+}
+
 
 // отслеживаем клики и отправления форм
 document.addEventListener('keydown', function (evt) {
