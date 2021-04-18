@@ -39,6 +39,11 @@ const setEventListeners = (form, set) => {
   const button = form.querySelector(set.submitButtonSelector);
   toggleButtonState(inputList, button, set);
 
+  form.addEventListener('submit', function (evt) {
+    evt.preventDefault();
+    toggleButtonState(inputList, button, set);
+  });
+
   inputList.forEach((input) => {
     input.addEventListener('input', function (evt) {
       checkInputValidity(form, input, set);
@@ -50,6 +55,7 @@ const setEventListeners = (form, set) => {
 const enableValidation = (set) => {
   const formList = document.querySelectorAll(set.formSelector);
   formList.forEach((form) => {
+
     setEventListeners(form, set);
   })
 }
