@@ -139,11 +139,6 @@ function closeByEscape(evt) {
 
 
 // отслеживаем клики и отправления форм
-document.addEventListener('keydown', function (evt) {
-  if(evt.key === 'Escape'){
-    closeOpenedPopup();
-  }
-});
 
 addButton.addEventListener('click', openPopupTypeAdd);
 formPopupTypeAdd.addEventListener('submit', addCardFromForm);
