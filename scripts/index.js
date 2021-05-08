@@ -1,3 +1,67 @@
+// класс карточки
+class Card {
+
+  constructor(card) {
+    this._name = card.name;
+    this._link = card.link;
+  }
+
+  _getTemplate() {
+    const cardElement = document.
+      querySelector('#card').
+      content.
+      querySelector('.card').
+      cloneNode(true);
+
+    return cardElement;
+  }
+
+  createCard() {
+    this._element = this._getTemplate();
+    this._setEventListner();
+
+    this._element.querySelector('.card__image').setAttribute('src', this._link);
+    this._element.querySelector('.card__image').setAttribute('alt', this._name);
+    this._element.querySelector('.card__description').textContent = this._name;
+
+    return this._element;
+  }
+
+  // повесить слушателей событий
+  _setEventListner() {
+    this._element.addEventListener('click', (evt) => {
+
+      if(evt.target.classList.contains('card__image')) {
+
+        this._openPopup();
+
+      } else if(evt.target.classList.contains('card__button_type_delete')){
+
+        this._handDeleteClick();
+
+      } else if(evt.target.classList.contains('card__button_type_like')){
+
+        this._handleLikeClick();
+
+      }
+
+    })
+  }
+
+  _handleLikeClick() {
+    this._element.querySelector('.card__button_type_like').classList.toggle('card__button_type_like-checked');
+  }
+
+  _handDeleteClick() {
+    this._element.remove();
+  }
+
+  _openPopup() {
+    openPopupTypeImage(this._link, this._name);
+  }
+
+}
+
 const cardsList = document.querySelector('.card-list');
 const card = document.querySelector('#card').content;
 
@@ -28,7 +92,7 @@ const popupOverlays = document.querySelectorAll('.popup__overlay');
 
 // добавление карточек из массива
 initialCards.forEach((item) => {
-  addCard(item.name, item.link);
+  addCard(item);
 });
 
 // функции открытия popup
@@ -84,32 +148,13 @@ function editUserInfo(evt) {
   closeOpenedPopup();
 }
 
-// функция добавления новой карточки
-function createCard(title, link) {
+function addCard(item){
+  // принимает объект карточки
+  // создает экземпляр класса Card
+  // добавляет его в началао узла cardsList
 
-  // принимает 2 аргумента: заголовок карточки и ссылку на изображение
-  // клонирует шаблон карточки из template и наполняет полученными данными
-  // возвращает карточку
-
-  const newCard = card.cloneNode(true);
-
-  const newCardImage = newCard.querySelector('.card__image');
-  const newCardDescription = newCard.querySelector('.card__description');
-
-  newCardImage.setAttribute('src', link);
-  newCardImage.setAttribute('alt', title);
-  newCardDescription.textContent = title;
-
-  return newCard;
-}
-
-function addCard(title,link){
-  // принимает 2 аргумента: заголовок карточки и ссылку на изображение
-  // создает карточку
-  // добавляет её в началао узла cardsList
-
-  const newCard = createCard(title, link);
-  cardsList.prepend(newCard);
+  const cardElement = new Card(item).createCard();
+  cardsList.prepend(cardElement);
 }
 
 function addCardFromForm(evt) {
@@ -120,13 +165,15 @@ function addCardFromForm(evt) {
 
   evt.preventDefault();
 
-  const linkFromForm = inputLinkPopupTypeAdd.value;
-  const titleFromFrom = inputTitlePopupTypeAdd.value;
+  const cardFromForm = {
+    name: inputTitlePopupTypeAdd.value,
+    link: inputLinkPopupTypeAdd.value,
+  }
 
   inputLinkPopupTypeAdd.value = null;
   inputTitlePopupTypeAdd.value = null;
 
-  addCard(titleFromFrom, linkFromForm);
+  addCard(cardFromForm);
 
   closeOpenedPopup();
 }
@@ -148,23 +195,3 @@ formPopupTypeEdit.addEventListener('submit', editUserInfo);
 
 buttonsClose.forEach((item) => {item.addEventListener('click', closeOpenedPopup)});
 popupOverlays.forEach((item) => {item.addEventListener('click', closeOpenedPopup)});
-
-cardsList.addEventListener('click', function(evt){
-  const eventTarget = evt.target;
-
-  if(eventTarget.classList.contains('card__button_type_like')){
-    eventTarget.classList.toggle('card__button_type_like-checked');
-  }
-
-  if(eventTarget.classList.contains('card__button_type_delete')){
-    const eventTargetParentElement = eventTarget.parentElement;
-    eventTargetParentElement.remove(eventTargetParentElement);
-  }
-
-  if(eventTarget.classList.contains('card__image')){
-    const eventTargetImage = eventTarget.src;
-    const eventTargetDescription = eventTarget.alt;
-
-    openPopupTypeImage(eventTargetImage, eventTargetDescription);
-  }
-})
