@@ -1,13 +1,3 @@
-// настройка валидации
-const validationSetting = {
-  formSelector: '.form',
-  inputSelector: '.form__input',
-  submitButtonSelector: '.form__button_type_submit',
-  inactiveButtonClass: 'form__button_disabled',
-  inputErrorClass: 'form__input_type_error',
-  errorClass: 'form__error_visible'
-}
-
 class FormValidator {
 
   constructor(validationSetting, validtionElement) {
@@ -57,12 +47,12 @@ class FormValidator {
   _setEventListeners() {
     this._toggleButtonState();
 
-    this._elem.addEventListener('submit', function(evt) {
+    this._elem.addEventListener('submit', (evt) => {
       evt.preventDefault();
       this._toggleButtonState();
     })
 
-    this._inputsList.forEach((_input) => {
+    this._inputsList.forEach(_input => {
       _input.addEventListener('input', () => {
         this._checkInputValidity(_input);
         this._toggleButtonState();
@@ -76,5 +66,5 @@ class FormValidator {
   }
 }
 
-const newValidathion = new FormValidator(validationSetting, firstForm);
-newValidathion.enableValidation();
+
+export default FormValidator;
