@@ -7,13 +7,13 @@ class Card {
   }
 
   _getTemplate() {
-    const cardElement = document.
+    const _cardElement = document.
       querySelector('#card').
       content.
       querySelector('.card').
       cloneNode(true);
 
-    return cardElement;
+    return _cardElement;
   }
 
   createCard() {
@@ -57,6 +57,7 @@ class Card {
   }
 
   _openPopup() {
+    // можно ли обращаться из класса к внешним функциям?
     openPopupTypeImage(this._link, this._name);
   }
 
@@ -184,9 +185,7 @@ function closeByEscape(evt) {
   }
 }
 
-
 // отслеживаем клики и отправления форм
-
 addButton.addEventListener('click', openPopupTypeAdd);
 formPopupTypeAdd.addEventListener('submit', addCardFromForm);
 
