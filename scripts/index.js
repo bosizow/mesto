@@ -1,3 +1,4 @@
+const cardTemplate = document.querySelector('#card').content.querySelector('.card').cloneNode(true);
 const cardsList = document.querySelector('.card-list');
 
 const profile = document.querySelector('.profile');
@@ -22,12 +23,13 @@ const popupTypeImage = document.querySelector('.popup_type_image');
 const popupImage = popupTypeImage.querySelector('.popup__image');
 const popupDescription = popupTypeImage.querySelector('.popup__image-description');
 
-const buttonsClose = document.querySelectorAll('.popup__button_type_close');
+const closeButtons = document.querySelectorAll('.popup__button_type_close');
 const popupOverlays = document.querySelectorAll('.popup__overlay');
 
 // добавление карточек из массива
 initialCards.forEach((item) => {
-  addCard(item);
+  const cardElement = createCard(item, cardTemplate, openPopupTypeImage);
+  addCard(cardElement);
 });
 
 // функции открытия popup
@@ -83,13 +85,13 @@ function editUserInfo(evt) {
   closeOpenedPopup();
 }
 
-function addCard(item){
-  // принимает объект карточки
-  // создает экземпляр класса Card
-  // добавляет его в началао узла cardsList
+function createCard(item, cardTemplate, openFunction){
+  const cardElement = new Card(item, cardTemplate, openFunction).createCard();
+  return cardElement;
+}
 
-  const cardElement = new Card(item).createCard();
-  cardsList.prepend(cardElement);
+function addCard(card){
+  cardsList.prepend(card);
 }
 
 function addCardFromForm(evt) {
@@ -108,7 +110,8 @@ function addCardFromForm(evt) {
   inputLinkPopupTypeAdd.value = null;
   inputTitlePopupTypeAdd.value = null;
 
-  addCard(cardFromForm);
+  const cardElement = createCard(cardFromForm, cardTemplate, openPopupTypeImage);
+  addCard(cardElement);
 
   closeOpenedPopup();
 }
@@ -130,7 +133,7 @@ formTypeAdd.addEventListener('submit', addCardFromForm);
 editButton.addEventListener('click', openPopupTypeEdit);
 formTypeEdit.addEventListener('submit', editUserInfo);
 
-buttonsClose.forEach((item) => {item.addEventListener('click', closeOpenedPopup)});
+closeButtons.forEach((item) => {item.addEventListener('click', closeOpenedPopup)});
 popupOverlays.forEach((item) => {item.addEventListener('click', closeOpenedPopup)});
 
 export { openPopupTypeImage };

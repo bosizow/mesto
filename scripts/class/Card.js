@@ -1,27 +1,20 @@
 class Card {
 
-  constructor(card) {
-    this._name = card.name;
-    this._link = card.link;
-  }
-
-  _getTemplate() {
-    const _cardElement = document.
-      querySelector('#card').
-      content.
-      querySelector('.card').
-      cloneNode(true);
-
-    return _cardElement;
+  constructor({name, link}, element, openFunction) {
+    this._name = name;
+    this._link = link;
+    this._element = element.cloneNode(true);
+    this._elementImage = this._element.querySelector('.card__image');
+    this._elementDescription = this._element.querySelector('.card__description');
+    this._openFunction = openFunction;
   }
 
   createCard() {
-    this._element = this._getTemplate();
     this._setEventListner();
 
-    this._element.querySelector('.card__image').setAttribute('src', this._link);
-    this._element.querySelector('.card__image').setAttribute('alt', this._name);
-    this._element.querySelector('.card__description').textContent = this._name;
+    this._elementImage.setAttribute('src', this._link);
+    this._elementImage.setAttribute('alt', this._name);
+    this._elementDescription.textContent = this._name;
 
     return this._element;
   }
@@ -32,7 +25,7 @@ class Card {
 
       if(evt.target.classList.contains('card__image')) {
 
-        this._openPopup();
+        this._openFunction(this._link, this._name);
 
       } else if(evt.target.classList.contains('card__button_type_delete')){
 
@@ -55,12 +48,6 @@ class Card {
     this._element.remove();
   }
 
-  _openPopup() {
-    // можно ли обращаться из класса к внешним функциям?
-    openPopupTypeImage(this._link, this._name);
-  }
-
 }
 
 export default Card;
-import { openPopupTypeImage } from './../index.js';
